@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: Controller para la tabla categoria
+ */
 @RestController
 @RequestMapping("/categoria")
 @RequiredArgsConstructor

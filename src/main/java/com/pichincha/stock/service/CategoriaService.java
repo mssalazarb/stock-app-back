@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 @Service
 @RequiredArgsConstructor
 public class CategoriaService {

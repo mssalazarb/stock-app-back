@@ -1,5 +1,9 @@
 package com.pichincha.stock.exception;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 public class CustomRuntimeException extends RuntimeException {
     public CustomRuntimeException() {
     }

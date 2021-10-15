@@ -11,9 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Date;
 
 /**
- * Excepciones globales
- *
- * @author msalazar
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: GlobalExeception para capturar errores y mensajes de respuesta en peticiones
  */
 @RestControllerAdvice
 @CommonsLog

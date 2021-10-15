@@ -5,6 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 @Entity
 @Table(name = "bienes")
 @Data

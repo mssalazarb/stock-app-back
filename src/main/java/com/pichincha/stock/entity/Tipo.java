@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 @Entity
 @Table(name = "tipo")
 @Data

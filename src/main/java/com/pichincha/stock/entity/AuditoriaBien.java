@@ -7,6 +7,10 @@ import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 @Entity
 @Table(name = "auditoria_bienes")
 @Data

@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: Controller para la tabla bienes_categoria
+ */
 @RestController
 @RequestMapping("/bien-categoria")
 @RequiredArgsConstructor

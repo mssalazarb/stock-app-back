@@ -1,5 +1,11 @@
 package com.pichincha.stock.dao;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: Constantes para consultas sql nativas
+ */
 public class ConsultaSql {
 
     public static final String FIND_ALL_BIEN = "select b.id, b.nombre, b.stock, b.estado, b.id_tipo as idTipo from bienes b";

@@ -12,6 +12,12 @@ import java.util.Optional;
 
 import static com.pichincha.stock.dao.ConsultaSql.*;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: Dao para la tabla bienes
+ */
 @Repository
 public interface BienDao extends JpaRepository<Bien, Integer> {
 

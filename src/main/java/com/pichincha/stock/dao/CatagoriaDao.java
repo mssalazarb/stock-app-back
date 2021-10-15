@@ -6,6 +6,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ * <p>
+ * descripcion: Dao para la tabla categoria
+ */
 @Repository
 public interface CatagoriaDao extends JpaRepository<Categoria, Integer> {
 

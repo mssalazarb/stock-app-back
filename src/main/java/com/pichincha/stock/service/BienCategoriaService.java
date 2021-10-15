@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author mssalazarb
+ * @version 1
+ */
 @Service
 @RequiredArgsConstructor
 public class BienCategoriaService {
