@@ -13,7 +13,9 @@ public interface BienProyection {
 
     Integer getStock();
 
-    Integer getEstado();
+    Integer getIdEstado();
 
-    Integer getIdTipo();
+    Integer getIdCategoria();
+
+    String getEstadoBien();
 }
