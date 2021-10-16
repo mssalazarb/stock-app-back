@@ -82,7 +82,7 @@ public class BienService {
     public void saveAll(List<Bien> bienes) {
         var nombres = bienes.stream().map(Bien::getNombre).collect(Collectors.toList());
         var bienesList = bienDao.findBienesInNames(nombres);
-        if (!bienesList.isEmpty()) throw new CustomRuntimeException("Uno o varios bienes a registrar ya existen!");
+        if (!bienesList.isEmpty()) throw new CustomRuntimeException("Uno o varios bienes a registrar ya existen");
 
         bienes.forEach(bien -> {
             bien = bienDao.save(bien);
