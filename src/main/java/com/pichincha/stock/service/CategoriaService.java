@@ -3,6 +3,7 @@ package com.pichincha.stock.service;
 import com.pichincha.stock.dao.CatagoriaDao;
 import com.pichincha.stock.entity.Categoria;
 import com.pichincha.stock.exception.CustomRuntimeException;
+import com.pichincha.stock.proyection.CategoriaProyection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,14 +21,32 @@ public class CategoriaService {
 
     private final CatagoriaDao catagoriaDao;
 
+    /**
+     * buscar todas las categorias sin referencias
+     */
+    public List<CategoriaProyection> findAllWithoutDetail() {
+        return catagoriaDao.findAllWithoutDetail();
+    }
+
+    /**
+     * buscar todas las categorias con referencias
+     */
     public List<Categoria> findAll() {
         return catagoriaDao.findAll();
     }
 
-    public Categoria findById(Integer id) {
-        return catagoriaDao.findById(id).orElse(null);
+    /**
+     * buscar una categoria por id
+     *
+     * @param name - busacar una categoria por su nombre
+     */
+    public Categoria findByNombre(String name) {
+        return catagoriaDao.findByNombre(name).orElse(null);
     }
 
+    /**
+     * crear una nueva categoria
+     */
     @Transactional
     public Categoria save(Categoria categoria) {
         var category = catagoriaDao.findByNombre(categoria.getNombre()).orElse(null);
@@ -38,6 +57,9 @@ public class CategoriaService {
         return catagoriaDao.save(categoria);
     }
 
+    /**
+     * actualizar una categoria
+     */
     @Transactional
     public Categoria update(Categoria categoria) {
         return catagoriaDao.save(categoria);

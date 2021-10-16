@@ -1,6 +1,7 @@
 package com.pichincha.stock.controller;
 
 import com.pichincha.stock.entity.Categoria;
+import com.pichincha.stock.proyection.CategoriaProyection;
 import com.pichincha.stock.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,8 +14,6 @@ import java.util.Objects;
 /**
  * @author mssalazarb
  * @version 1
- * <p>
- * descripcion: Controller para la tabla categoria
  */
 @RestController
 @RequestMapping("/categoria")
@@ -22,16 +21,34 @@ import java.util.Objects;
 public class CategoriaController {
     private final CategoriaService categoriaService;
 
+    /**
+     * buscar todas las categorias sin referencias
+     */
     @GetMapping("/all")
+    public ResponseEntity<List<CategoriaProyection>> findAllWithoutDetail() {
+        var response = categoriaService.findAllWithoutDetail();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    /**
+     * buscar todas las categorias con referencias
+     */
+    @GetMapping("/all-detail")
     public ResponseEntity<List<Categoria>> findAll() {
         var response = categoriaService.findAll();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    /**
+     * buscar una categoria por id
+     *
+     * @param name - busacar una categoria por su nombre
+     */
     @GetMapping
-    public ResponseEntity<Categoria> findById(@RequestParam("id") Integer id) {
-        var response = categoriaService.findById(id);
+    public ResponseEntity<Categoria> findByNombre(@RequestParam("name") String name) {
+        var response = categoriaService.findByNombre(name);
         if (Objects.isNull(response)) {
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         }
@@ -39,12 +56,18 @@ public class CategoriaController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    /**
+     * crear una nueva categoria
+     */
     @PostMapping
     public ResponseEntity<Categoria> save(@RequestBody Categoria categoria) {
         var response = categoriaService.save(categoria);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    /**
+     * actualizar una categoria
+     */
     @PutMapping
     public ResponseEntity<Categoria> update(@RequestBody Categoria categoria) {
         var response = categoriaService.update(categoria);
