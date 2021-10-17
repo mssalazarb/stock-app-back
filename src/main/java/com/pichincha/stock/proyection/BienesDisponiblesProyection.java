@@ -10,4 +10,8 @@ public interface BienesDisponiblesProyection {
     Integer getDisponibles();
 
     String getCategoria();
+
+    void setDisponibles(Integer disponibles);
+
+    void setCategoria(String categoria);
 }

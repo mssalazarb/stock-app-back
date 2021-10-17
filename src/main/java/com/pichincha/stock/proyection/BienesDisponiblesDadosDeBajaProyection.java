@@ -12,4 +12,10 @@ public interface BienesDisponiblesDadosDeBajaProyection {
     Integer getDadosDeBaja();
 
     String getCategoria();
+
+    void setDisponibles(Integer disponibles);
+
+    void setDadosDeBaja(Integer dadosDeBaja);
+
+    void setCategoria(String categoria);
 }
