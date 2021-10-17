@@ -39,21 +39,21 @@ public class BienService {
     }
 
     /**
-     * buscar un bien por id
+     * buscar un bien por su nombre
      *
-     * @param id - id del bien
+     * @param name - nombre del bien
      */
-    public BienProyection findById(Integer id) {
-        return bienDao.findByIdBien(id).orElse(null);
+    public BienProyection findByNameBien(String name) {
+        return bienDao.findByNameBien(name).orElse(null);
     }
 
     /**
-     * buscar un bien con su detalle por id
+     * buscar un bien con su detalle por nombre
      *
-     * @param id - id del bien
+     * @param nombre - nombre del bien
      */
-    public Bien findByIdDetail(Integer id) {
-        return bienDao.findById(id).orElse(null);
+    public Bien findByNameDetail(String nombre) {
+        return bienDao.findByNombre(nombre).orElse(null);
     }
 
     /**

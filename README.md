@@ -58,7 +58,7 @@ Para levantar la aplicación se debe contar con las siguientes versiones:
 ### Con Docker
 
 Para levantar la aplicación es necesario tener instalado docker en su SO, para mas información de como realizar la
-isntalación puede consultar acá:
+instalación puede consultar acá:
 
 * Windows: [Docker in Windows](https://docs.docker.com/desktop/windows/install/)
 * Linux: [Docker in Linux](https://docs.docker.com/engine/install/ubuntu/)
@@ -69,37 +69,39 @@ $  docker run -p 5434:5432  --name postgres -e POSTGRES_PASSWORD=postgres -e  PO
 
 ### Sin Docker
 
-Para levantar la aplicacin es necesario tener instalo el sistema operativo:
+Para levantar la aplicacin es necesario tener instalado el sistema operativo:
 
 * Windows: [Install PostgrSQL in Windows](https://www.postgresqltutorial.com/install-postgresql/)
 *
-
 Linux: [Install PostgrSQL in Linux](tion/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL_Linux.htm)
-
-* Tener instalado PostgreSQL en el puerto [5432].
-* Se debe tener creada una base de datos con el nombre de [stock].
+* Puerto: [5432].
+* Crear base de datos con el nombre: [stock].
 
 ### Endpoints
 
-* Listar todas las categorias: [GET](http://localhost:8080/categoria/all) (http://localhost:8080/categoria/all) - buscar
-  todas las categorias sin referencias
-* Listar categorias on
-  referencias : [GET](http://localhost:8080/categoria/all-detail) (http://localhost:8080/categoria/all) - buscar todas
-  las categorias sin referencias
-* Buscar categoria por su nombre [GET](http://localhost:8080/categoria/all-detail) (http://localhost:8080/categori?name)
-  - buscar todas las categorias si
-*
+#### Categoria
 
-id: [GET](http://localhost:8080/categoria?id=codigo_categoria) (http://localhost:8080/categoria?id=codigo_categoria)
+* [GET](http://localhost:8080/categoria/all) (http://localhost:8080/categoria/all) - buscar todas las categorias sin
+  bienes relacionados
+* [GET](http://localhost:8080/categoria/all-detail) (http://localhost:8080/categoria/all) - buscar todas las categorias
+  con bienes relacionados
+* [GET](http://localhost:8080/categoria) (http://localhost:8080/categoria?name=nombre_categoria) - buscar una categoria
+  por su nombre
+* [POST](http://localhost:8080/categoria) (http://localhost:8080/categoria) - registrar una nueva categoria
+* [PUT](http://localhost:8080/categoria/all) (http://localhost:8080/categoria/all) - actualizar una categoria
 
-* Registrar una categoria: [POST](http://localhost:8080/categoria) (http://localhost:8080/categoria)
-* Actualizar una categoria: [PUT](http://localhost:8080/categoria/all) (http://localhost:8080/categoria/all)
-* Listar todos los bienes: [GET](http://localhost:8080/bien/all) (http://localhost:8080/bien/all)
-* Buscar un bien por id: [GET](http://localhost:8080/bien?id=codigo_bien) (http://localhost:8080/bien?id=codigo_bien)
-* Buscar un bien por id con detalle
-  extendido: [GET](http://localhost:8080/bien/detail?id=id_bien) (http://localhost:8080/bien/detail?id=id_bien)
-* Registrar un bien: [POST](http://localhost:8080/categoria/all) (http://localhost:8080/categoria/all)
-* Bienes disponibles por
-  categoria: [GET](http://localhost:8080/bien/disponibles-categoria) (http://localhost:8080/bien/disponibles-categoria)
-* Listar todos los bienes con su
-  categoria: [GET](http://localhost:8080/bien-categoria/all) (http://localhost:8080/bien-categoria/all)
+#### Bien
+
+* [GET](http://localhost:8080/bien/all) (http://localhost:8080/bien/all-estado) - buscar todos los bienes con el detalle
+  de su respectivo estado
+* [GET](http://localhost:8080/bien?name=nombre_del_bien) (http://localhost:8080/bien?name=nombre_del_bien) - buscar un
+  bien por nombre
+* [GET](http://localhost:8080/bien/detail?id=id_bien) (http://localhost:8080/bien/detail?name=nombre_del_bien) - buscar
+  un bien con su detalle por nombre
+* [POST](http://localhost:8080/bien) (http://localhost:8080/bien) - registrar un nuevo bien asociado a una categoria
+* [GET](http://localhost:8080/bien/disponibles) (http://localhost:8080/bien/disponibles) - buscar cuantos bienes
+  disponibles existe en cada categoria
+* [GET](http://localhost:8080/bien/disponibles-categoria) (http://localhost:8080/bien/disponibles-categoria?categoria=codigo_categoria)
+  - buscar cuandos bienes disponibles y dados de baja hay en una categoria
+* [POST](http://localhost:8080/bien/batch) (http://localhost:8080/bien/batch) - registrar un lote de bienes
+* [PUT](http://localhost:8080/bien/withdrawal) (http://localhost:8080/bien/withdrawal) - dar de baja uno o varios bienes

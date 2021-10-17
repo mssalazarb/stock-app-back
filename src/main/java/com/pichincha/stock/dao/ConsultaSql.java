@@ -13,8 +13,8 @@ public class ConsultaSql {
             "from bienes b " +
             "inner join estado_bienes e on e.id = b.id_estado";
 
-    public static final String FIND_BY_ID_BIEN = "select b.id, b.nombre, b.stock, b.estado, b.id_tipo as idTipo from bienes b " +
-            "where b.id = :id";
+    public static final String FIND_BY_NAME_BIEN = "select b.id, b.nombre, b.stock, b.estado, b.id_tipo as idTipo from bienes b " +
+            "where b.nombre = :nombre";
 
     public static final String BIENES_AVAILABLE_BY_CATEGORIA = "select count(b.id) as disponibles, c.nombre as categoria " +
             "from bienes b " +

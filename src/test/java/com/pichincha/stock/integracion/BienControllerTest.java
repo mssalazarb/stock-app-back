@@ -57,14 +57,14 @@ public class BienControllerTest {
         given(service.findAllBienesStatus()).willReturn(bienes);
     }
 
-    private void mockBienFindById() {
+    private void mockBienFindByName() {
         var projection = this.buildBienProyection();
-        given(service.findById(projection.getId())).willReturn(projection);
+        given(service.findByNameBien(projection.getNombre())).willReturn(projection);
     }
 
     private void mockFindByIdDetail() {
         var bien = this.buildBien();
-        given(service.findByIdDetail(bien.getId())).willReturn(bien);
+        given(service.findByNameDetail(bien.getNombre())).willReturn(bien);
     }
 
     private void mockBienSave() {
@@ -109,18 +109,18 @@ public class BienControllerTest {
     }
 
     @Test
-    void findById() throws Exception {
-        mockBienFindById();
+    void findByNameBien() throws Exception {
+        mockBienFindByName();
         Integer id = 1;
         this.mockMvc.perform(get("/bien")
                         .accept(MediaType.APPLICATION_JSON)
-                        .queryParam("id", "1"))
+                        .queryParam("name", "Test Bien"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(id)))
                 .andExpect(jsonPath("nombre", is("Test Bien")))
                 .andExpect(jsonPath("stock", is(100)));
 
-        verify(service, times(1)).findById(id);
+        verify(service, times(1)).findByNameBien("Test Bien");
     }
 
     @Test
@@ -128,14 +128,14 @@ public class BienControllerTest {
         mockFindByIdDetail();
         Integer id = 1;
         this.mockMvc.perform(get("/bien/detail")
-                        .queryParam("id", "1")
+                        .queryParam("name", "Test Bien")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(id)))
                 .andExpect(jsonPath("nombre", is("Test Bien")))
                 .andExpect(jsonPath("stock", is(100)));
 
-        verify(service, times(1)).findByIdDetail(id);
+        verify(service, times(1)).findByNameDetail("Test Bien");
     }
 
     @Test

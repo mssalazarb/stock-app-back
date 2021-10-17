@@ -24,8 +24,8 @@ public interface BienDao extends JpaRepository<Bien, Integer> {
     @Query(value = FIND_ALL_BIEN, nativeQuery = true)
     List<BienProyection> findAllBienesStatus();
 
-    @Query(value = FIND_BY_ID_BIEN, nativeQuery = true)
-    Optional<BienProyection> findByIdBien(@Param("id") Integer id);
+    @Query(value = FIND_BY_NAME_BIEN, nativeQuery = true)
+    Optional<BienProyection> findByNameBien(@Param("nombre") String nombre);
 
     Optional<Bien> findByNombre(String nombre);
 

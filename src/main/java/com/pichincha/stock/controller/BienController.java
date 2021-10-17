@@ -34,13 +34,13 @@ public class BienController {
     }
 
     /**
-     * buscar un bien por id
+     * buscar un bien por nombre
      *
-     * @param id - id del bien
+     * @param name - nombre del bien
      */
     @GetMapping
-    public ResponseEntity<BienProyection> findById(@RequestParam("id") Integer id) {
-        var response = bienService.findById(id);
+    public ResponseEntity<BienProyection> findByNameBien(@RequestParam("name") String name) {
+        var response = bienService.findByNameBien(name);
         if (Objects.isNull(response)) {
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         }
@@ -49,13 +49,13 @@ public class BienController {
     }
 
     /**
-     * buscar un bien con su detalle por id
+     * buscar un bien con su detalle por nombre
      *
-     * @param id - id del bien
+     * @param nombre - nombre del bien
      */
     @GetMapping("/detail")
-    public ResponseEntity<Bien> findByIdDetail(@RequestParam("id") Integer id) {
-        var response = bienService.findByIdDetail(id);
+    public ResponseEntity<Bien> findByNameDetail(@RequestParam("name") String nombre) {
+        var response = bienService.findByNameDetail(nombre);
         if (Objects.isNull(response)) {
             return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
         }
