@@ -105,3 +105,16 @@ Linux: [Install PostgrSQL in Linux](tion/idol/IDOL_12_0/MediaServer/Guides/html/
   - buscar cuandos bienes disponibles y dados de baja hay en una categoria
 * [POST](http://localhost:8080/bien/batch) (http://localhost:8080/bien/batch) - registrar un lote de bienes
 * [PUT](http://localhost:8080/bien/withdrawal) (http://localhost:8080/bien/withdrawal) - dar de baja uno o varios bienes
+
+### Coverage
+
+Para poder ejecutar los test y verificar el coverage respectivo se debe ejecutar el comando:
+
+```shell
+> ./gradlew jacocoTestReport
+```
+
+Una vez generado el reporte se genera un informe en la ruta: /build/jacocoHtml/index.html
+
+Ejemplo del reporte:
+![Report](./src/main/resources/report/report.jpg)
