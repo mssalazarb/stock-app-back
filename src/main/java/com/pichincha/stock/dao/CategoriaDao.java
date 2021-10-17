@@ -16,7 +16,7 @@ import static com.pichincha.stock.dao.ConsultaSql.FIND_ALL_CATEGORIA;
  * @version 1
  */
 @Repository
-public interface CatagoriaDao extends JpaRepository<Categoria, Integer> {
+public interface CategoriaDao extends JpaRepository<Categoria, Integer> {
 
     Optional<Categoria> findByNombre(String nombre);
 

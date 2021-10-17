@@ -1,6 +1,6 @@
 package com.pichincha.stock.service;
 
-import com.pichincha.stock.dao.CatagoriaDao;
+import com.pichincha.stock.dao.CategoriaDao;
 import com.pichincha.stock.entity.Categoria;
 import com.pichincha.stock.exception.CustomRuntimeException;
 import com.pichincha.stock.proyection.CategoriaProyection;
@@ -19,7 +19,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class CategoriaService {
 
-    private final CatagoriaDao catagoriaDao;
+    private final CategoriaDao catagoriaDao;
 
     /**
      * buscar todas las categorias sin referencias

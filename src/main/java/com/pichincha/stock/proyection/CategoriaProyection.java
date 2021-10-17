@@ -10,4 +10,8 @@ public interface CategoriaProyection {
     Integer getId();
 
     String getNombre();
+
+    void setId(Integer id);
+
+    void setNombre(String nombre);
 }
