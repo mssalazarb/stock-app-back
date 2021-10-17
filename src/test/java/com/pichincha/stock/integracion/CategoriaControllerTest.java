@@ -51,7 +51,7 @@ public class CategoriaControllerTest {
         ProjectionFactory factory = new SpelAwareProxyProjectionFactory();
         CategoriaProyection projection = factory.createProjection(CategoriaProyection.class);
         projection.setId(1);
-        projection.setNombre("Test Data");
+        projection.setNombre("Test Categoria");
         List<CategoriaProyection> categorias = new ArrayList<>();
         categorias.add(projection);
         given(service.findAllWithoutDetail()).willReturn(categorias);
@@ -64,7 +64,7 @@ public class CategoriaControllerTest {
     }
 
     private void mockCategoriaFindByNombre() {
-        String name = "Test Name";
+        String name = "Test Categoria";
         given(service.findByNombre(name)).willReturn(this.buildCategoria());
     }
 
@@ -85,7 +85,7 @@ public class CategoriaControllerTest {
     private Categoria buildCategoria() {
         Categoria category = new Categoria();
         category.setId(3);
-        category.setNombre("Test Name");
+        category.setNombre("Test Categoria");
 
         return category;
     }
@@ -97,7 +97,7 @@ public class CategoriaControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].nombre", is("Test Data")));
+                .andExpect(jsonPath("$[0].nombre", is("Test Categoria")));
 
         verify(service, times(1)).findAllWithoutDetail();
     }
@@ -109,7 +109,7 @@ public class CategoriaControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(3)))
-                .andExpect(jsonPath("$[0].nombre", is("Test Name")));
+                .andExpect(jsonPath("$[0].nombre", is("Test Categoria")));
 
         verify(service, times(1)).findAll();
     }
@@ -117,7 +117,7 @@ public class CategoriaControllerTest {
     @Test
     void findByNombreCorrect() throws Exception {
         mockCategoriaFindByNombre();
-        String name = "Test Name";
+        String name = "Test Categoria";
         this.mockMvc.perform(get("/categoria")
                         .queryParam("name", name)
                         .accept(MediaType.APPLICATION_JSON))
@@ -137,7 +137,7 @@ public class CategoriaControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(3)))
-                .andExpect(jsonPath("nombre", is("Test Name")));
+                .andExpect(jsonPath("nombre", is("Test Categoria")));
 
         verify(service, times(1)).save(this.buildCategoria());
     }
@@ -165,7 +165,7 @@ public class CategoriaControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(3)))
-                .andExpect(jsonPath("nombre", is("Test Name")));
+                .andExpect(jsonPath("nombre", is("Test Categoria")));
 
         verify(service, times(1)).update(this.buildCategoria());
     }

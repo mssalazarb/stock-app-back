@@ -18,4 +18,16 @@ public interface BienProyection {
     Integer getIdCategoria();
 
     String getEstadoBien();
+
+    void setId(Integer id);
+
+    void setNombre(String nombre);
+
+    void setStock(Integer stock);
+
+    void setIdEstado(Integer idEstado);
+
+    void setIdCategoria(Integer idCategoria);
+
+    void setEstadoBien(String estadoBien);
 }
