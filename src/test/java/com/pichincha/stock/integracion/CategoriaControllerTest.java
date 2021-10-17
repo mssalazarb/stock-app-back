@@ -68,6 +68,11 @@ public class CategoriaControllerTest {
         given(service.findByNombre(name)).willReturn(this.buildCategoria());
     }
 
+    private void mockCategoriaFindByNombreEmpty() {
+        String name = "Test Categoria";
+        given(service.findByNombre(name)).willReturn(null);
+    }
+
     private void mockCategoriaSave() {
         given(service.save(this.buildCategoria())).willReturn(this.buildCategoria());
     }
@@ -124,6 +129,18 @@ public class CategoriaControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(3)))
                 .andExpect(jsonPath("nombre", is(name)));
+
+        verify(service, times(1)).findByNombre(name);
+    }
+
+    @Test
+    void findByNombreNoContent() throws Exception {
+        mockCategoriaFindByNombreEmpty();
+        String name = "Test Categoria";
+        this.mockMvc.perform(get("/categoria")
+                        .queryParam("name", name)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().is2xxSuccessful());
 
         verify(service, times(1)).findByNombre(name);
     }

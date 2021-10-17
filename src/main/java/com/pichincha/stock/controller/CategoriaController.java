@@ -22,7 +22,7 @@ public class CategoriaController {
     private final CategoriaService categoriaService;
 
     /**
-     * buscar todas las categorias sin referencias
+     * buscar todas las categorias sin bienes relacionados
      */
     @GetMapping("/all")
     public ResponseEntity<List<CategoriaProyection>> findAllWithoutDetail() {
@@ -32,7 +32,7 @@ public class CategoriaController {
     }
 
     /**
-     * buscar todas las categorias con referencias
+     * buscar todas las categorias con bienes relacionados
      */
     @GetMapping("/all-detail")
     public ResponseEntity<List<Categoria>> findAll() {
