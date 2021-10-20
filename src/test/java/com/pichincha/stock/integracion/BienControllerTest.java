@@ -6,7 +6,7 @@ import com.pichincha.stock.entity.Bien;
 import com.pichincha.stock.proyection.BienProyection;
 import com.pichincha.stock.proyection.BienesDisponiblesDadosDeBajaProyection;
 import com.pichincha.stock.proyection.BienesDisponiblesProyection;
-import com.pichincha.stock.service.BienService;
+import com.pichincha.stock.service.impl.BienServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -41,7 +41,7 @@ public class BienControllerTest {
     private ObjectMapper mapper;
 
     @MockBean
-    private BienService service;
+    private BienServiceImpl service;
 
     private ProjectionFactory factory;
 

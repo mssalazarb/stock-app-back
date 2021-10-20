@@ -4,7 +4,7 @@ import com.pichincha.stock.entity.Bien;
 import com.pichincha.stock.proyection.BienProyection;
 import com.pichincha.stock.proyection.BienesDisponiblesDadosDeBajaProyection;
 import com.pichincha.stock.proyection.BienesDisponiblesProyection;
-import com.pichincha.stock.service.BienService;
+import com.pichincha.stock.service.impl.BienServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ import java.util.Objects;
 @RequestMapping("/bien")
 @RequiredArgsConstructor
 public class BienController {
-    private final BienService bienService;
+    private final BienServiceImpl bienService;
 
     /**
      * buscar todos los bienes con el detalle de su respectivo estado
